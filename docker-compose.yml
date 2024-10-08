@@ -1,0 +1,6 @@
+services:
+  test_site:
+    build:
+      context: .
+    ports:
+      - "5000:80"
