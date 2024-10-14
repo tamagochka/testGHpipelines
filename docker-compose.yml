@@ -2,5 +2,9 @@ services:
   test_site:
     build:
       context: .
+      target: flask_build
+    image: testghpipelines
+    container_name: testGHpipelines
     ports:
-      - "5000:80"
+      - "80:5000"
+
