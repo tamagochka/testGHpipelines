@@ -9,7 +9,9 @@ jobs:
       with:
         python: latest
     - name: Activate environment
-      run: . .venv/bin/activate
+      run: pip install --upgrade virtualenv
+      run: python3 -m venv .venv
+      run: source .venv/bin/activate
     - name: Install dependencies
       run: pip install --no-cache-dir -r requirements.txt
     - name: Run application
