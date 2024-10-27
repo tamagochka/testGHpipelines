@@ -1,7 +1,7 @@
-name: Run application's tests on github virtual machine
+name: Run application's tests and lint on github virtual machine
 on: push
 jobs:
-  app_testing:
+  app_testing_and_linting:
     runs-on: ubuntu-latest
     steps:
       - name: Get repository code
@@ -18,22 +18,5 @@ jobs:
         run: pip install --no-cache-dir -r requirements_dev.txt
       - name: Run application's tests
         run: python -m pytest
-  app_lint:
-    needs: app_testing
-    runs-on: ubuntu-latest
-    steps:
-      - name: Get repository code
-        uses: actions/checkout@v4
-      - name: Install python 3.13
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.13'
-      - name: Make environment
-        run: python3 -m venv .venv
-      - name: Activate environment
-        run: source .venv/bin/activate
-      - name: Install dependencies
-        run: pip install --no-cache-dir -r requirements_dev.txt
       - name: Lint application
-        run:
-          pylint .
+        run: pylint .
