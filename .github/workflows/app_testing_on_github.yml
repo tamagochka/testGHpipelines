@@ -6,6 +6,10 @@ jobs:
     steps:
       - name: Get repository code
         uses: actions/checkout@v4
+#      - name: Cache dependencies
+#        uses: actions/cache@v4
+#        with:
+#          path: ~/.
       - name: Install python 3.13
         uses: actions/setup-python@v5
         with:
@@ -20,3 +24,5 @@ jobs:
         run: python -m pytest
       - name: Lint application
         run: pylint .
+      - name: Find of pip location
+        run: pip --version
