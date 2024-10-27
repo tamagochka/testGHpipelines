@@ -1,5 +1,5 @@
 
-class TestConfigApp:
+class TestAppConfig:
 
     DEBUG = True
     HOST = 'localhost'

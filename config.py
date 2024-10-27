@@ -5,7 +5,7 @@ BASEDIR = os.path.abspath(os.path.dirname(__file__))
 load_dotenv(os.path.join(BASEDIR, '.env'))
 
 
-class ConfigApp:
+class AppConfig:
 
     DEBUG = True
     HOST = os.getenv('HOST', 'localhost')
