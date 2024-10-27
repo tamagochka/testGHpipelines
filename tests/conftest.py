@@ -23,3 +23,4 @@ def client(app):  # pylint: disable=redefined-outer-name
 @pytest.fixture()
 def runner(app):  # pylint: disable=redefined-outer-name
     return app.test_cli_runner()
+
