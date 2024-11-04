@@ -1,5 +1,5 @@
 name: Run application's tests and lint on github virtual machine
-on: push
+on: workflow_dispatch #push
 jobs:
   app_testing_and_linting:
     runs-on: self-hosted
