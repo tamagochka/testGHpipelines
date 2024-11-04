@@ -1,4 +1,4 @@
-name: Build and run app with docker-compose
+name: Build and run app with docker compose
 on:
   push:
     branches: [master]
@@ -8,5 +8,5 @@ jobs:
     steps:
       - name: Get repository code
         uses: actions/checkout@v4
-      - name: Run docker-compose up
-        run: docker-compose up --build -d
+      - name: Run docker compose up
+        run: docker compose up --build -d
