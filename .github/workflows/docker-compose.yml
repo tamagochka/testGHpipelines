@@ -1,0 +1,12 @@
+name: Build and run app with docker-compose
+on:
+  push:
+    branches: [master]
+jobs:
+  build:
+    runs-on: self-hosted
+    steps:
+      - name: Get repository code
+        uses: actions/checkout@v4
+      - name: Run docker-compose up
+        run: docker-compose up --build -d
