@@ -8,5 +8,7 @@ jobs:
     steps:
       - name: Get repository code
         uses: actions/checkout@v4
+      - name: List content of directory
+        run: ls -la
       - name: Run docker compose up
         run: docker compose up --build -d
