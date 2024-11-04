@@ -2,7 +2,7 @@ name: Run application's tests and lint on github virtual machine
 on: push
 jobs:
   app_testing_and_linting:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Get repository code
         uses: actions/checkout@v4
