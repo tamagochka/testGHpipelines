@@ -19,6 +19,8 @@ jobs:
         run: python3 -m venv .venv
       - name: Activate environment
         run: source .venv/bin/activate
+      - name: Check path to environment
+        run: pip -V
       - name: Install dependencies
         run: pip install --no-cache-dir -r requirements_dev.txt
       - name: Run application's tests
