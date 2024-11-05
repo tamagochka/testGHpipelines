@@ -5,14 +5,21 @@ on:
 jobs:
   build:
     runs-on: self-hosted
-    defaults:
-      run:
-        working-directory: /opt/app
     steps:
       - name: Get repository code
         uses: actions/checkout@v4
-        with:
-          path: /opt/app
+      - name: List source folder
+        run: |
+          pwd
+          ls -la ..
+      - name: Move all app files to build dir
+        run: mv ../${{ github.event.repository.name }} /opt/app
+      - name: List destination folder
+        working-directory: /opt/app
+        run: |
+          pwd
+          ls -la ..
       - name: Run docker compose up
+        working-directory: /opt/app
         run: docker compose up --build -d
 
