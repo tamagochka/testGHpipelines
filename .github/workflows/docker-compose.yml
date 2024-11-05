@@ -8,6 +8,9 @@ jobs:
     steps:
       - name: Get repository code
         uses: actions/checkout@v4
+      - name: Cleaning up destination folder
+        working-directory: /opt/app
+        run: rm -rf *
       - name: List source folder
         run: |
           pwd
@@ -15,11 +18,11 @@ jobs:
       - name: Move all app files to build dir
         run: mv ../${{ github.event.repository.name }} /opt/app
       - name: List destination folder
-        working-directory: /opt/app
+        working-directory: /opt/app/${{ github.event.repository.name }}
         run: |
           pwd
           ls -la ..
       - name: Run docker compose up
-        working-directory: /opt/app
+        working-directory: /opt/app/${{ github.event.repository.name }}
         run: docker compose up --build -d
 
