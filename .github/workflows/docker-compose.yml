@@ -16,7 +16,7 @@ jobs:
           pwd
           ls -la ..
       - name: Copy app to build dir
-        run: cp ../${{ github.event.repository.name }} /opt/app
+        run: cp -rf ../${{ github.event.repository.name }} /opt/app
       - name: List destination folder
         working-directory: /opt/app/${{ github.event.repository.name }}
         run: |
